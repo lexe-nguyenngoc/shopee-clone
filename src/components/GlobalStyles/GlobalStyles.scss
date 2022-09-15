@@ -1,0 +1,58 @@
+* {
+  &,
+  &::before,
+  &::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+html {
+  font-size: 62.5%;
+  line-height: 1;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.6rem;
+}
+
+button {
+  background-color: transparent;
+
+  border: none;
+  outline: none;
+
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+a {
+  cursor: default;
+
+  &[href] {
+    cursor: pointer;
+  }
+}
+
+input,
+textarea {
+  background-color: transparent;
+
+  border: none;
+  outline: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+div {
+  font-size: 1.3rem;
+  font-weight: 300;
+}

@@ -1,0 +1,40 @@
+{
+  "React Component Arrow Function using SASS Module styling": {
+    "prefix": "racm",
+    "body": [
+      "import PropTypes from 'prop-types';",
+      "",
+      "import classNames from 'classnames/bind';",
+      "",
+      "import styles from './$1.module.scss';",
+      "",
+      "const cx = classNames.bind();",
+      "",
+      "const $1= (props) => {",
+      "  return <div>$1</div>;",
+      "};",
+      "",
+      "$1.propTypes = {",
+      "",
+      "};",
+      "",
+      "$1.defaultProps = {",
+      "",
+      "}",
+      "",
+      "export default $1;",
+      ""
+    ],
+    "description": "React Arrow function Component with sass module"
+  },
+  "Create element": {
+    "prefix": "cel",
+    "body": ["<$1 className={cx($2)}>$3</$1>"],
+    "description": "Create Element using classnames and style module"
+  },
+  "Add Class": {
+    "prefix": "ac",
+    "body": ["className={cx($1)}"],
+    "description": ""
+  }
+}
