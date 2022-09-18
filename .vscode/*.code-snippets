@@ -8,7 +8,7 @@
       "",
       "import styles from './$1.module.scss';",
       "",
-      "const cx = classNames.bind();",
+      "const cx = classNames.bind(styles);",
       "",
       "const $1= (props) => {",
       "  return <div>$1</div>;",

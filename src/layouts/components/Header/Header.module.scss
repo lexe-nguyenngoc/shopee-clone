@@ -1,0 +1,166 @@
+.header {
+  height: 119px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: linear-gradient(-180deg, #f53d2d, #f63);
+
+  &__search {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 48px;
+
+  &.full {
+    flex: 1;
+  }
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  height: 34px;
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    padding: 4px;
+
+    font-size: 1.3rem;
+    font-weight: 300;
+    text-decoration: none;
+    white-space: nowrap;
+
+    color: var(--text-color);
+
+    &.separate {
+      position: relative;
+
+      &::before {
+        content: '';
+
+        position: absolute;
+        left: -5px;
+        top: 50%;
+
+        width: 2px;
+        height: 15px;
+
+        transform: translate(0, -50%);
+
+        background-color: hsla(0, 0%, 100%, 0.22);
+      }
+    }
+
+    svg {
+      margin-right: 5px;
+
+      &.notification {
+        width: 12px;
+        height: 14px;
+
+        fill: var(--text-color);
+      }
+    }
+  }
+
+  &__item-icon {
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin-left: 10px;
+
+    background: url(/assets/images/icon-social.png);
+    background-size: 487.5% 293.75%;
+
+    &:first-child {
+      margin-left: 4px;
+    }
+
+    &.facebook {
+      background-position: 8.064516129032258% 16.129032258064516%;
+    }
+
+    &.instagram {
+      background-position: 58.064516129032256% 16.129032258064516%;
+    }
+  }
+}
+
+.logo svg {
+  width: 162px;
+  height: 50px;
+  fill: var(--text-color);
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 3px 0 13px;
+
+  background-color: #ffffff;
+
+  border-radius: 2px;
+  transition: all ease-in 0.25s;
+
+  &:has(&__control:focus) {
+    box-shadow: #000000 0px 0px 4px 0px;
+  }
+
+  &__control {
+    flex: 1;
+    height: 40px;
+
+    color: #000000;
+
+    font-size: 1.4rem;
+    font-weight: 300;
+  }
+
+  button {
+    width: 60px;
+    height: 34px;
+
+    background-color: var(--brand-primary-color);
+    color: var(--text-color);
+
+    svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+  }
+}
+
+.cart {
+  margin-right: 60px;
+
+  svg {
+    width: 26px;
+    height: 26px;
+    fill: var(--text-color);
+  }
+}
+
+.featured-search {
+  display: flex;
+  align-items: center;
+  height: 27px;
+  padding-top: 5px;
+
+  &__item {
+    text-transform: capitalize;
+  }
+}

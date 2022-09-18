@@ -1,0 +1,40 @@
+.heading {
+  display: flex;
+  align-items: center;
+
+  padding: 28px 0;
+
+  color: var(--black-color);
+
+  font-size: 2rem;
+  font-weight: 300;
+
+  white-space: nowrap;
+}
+
+.sign-up {
+  form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+}
+
+.commit {
+  display: block;
+  padding: 25px 32px 0;
+
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  color: rgba(0, 0, 0, 0.87);
+  text-align: center;
+
+  a {
+    color: var(--primary-color);
+
+    &::before,
+    &::after {
+      content: ' ';
+    }
+  }
+}

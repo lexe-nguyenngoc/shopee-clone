@@ -1,0 +1,9 @@
+export { ReactComponent as NotificationIcon } from './notification.svg';
+export { ReactComponent as HelpIcon } from './help.svg';
+export { ReactComponent as LanguageIcon } from './language.svg';
+export { ReactComponent as LogoIcon } from './logo.svg';
+export { ReactComponent as SearchIcon } from './search.svg';
+export { ReactComponent as CartIcon } from './cart.svg';
+export { ReactComponent as IconQRIcon } from './icon-qr.svg';
+export { ReactComponent as EyeIcon } from './eye.svg';
+export { ReactComponent as EyeHideIcon } from './eye-hide.svg';

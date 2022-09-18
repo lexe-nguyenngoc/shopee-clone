@@ -1,11 +1,39 @@
 @font-face {
   font-family: Helvetica;
-  src: url(/assets/fonts/Helvetica-Neue-regular.woff);
-  font-weight: 400;
+  src: url(../../assets/fonts/770a8fca674a3550e241a6de7fa82d8b.woff);
+  font-weight: 300;
 }
 
 @font-face {
   font-family: Helvetica;
-  src: url(/assets/fonts/Helvetica-Neue.woff);
+  src: url(../../assets/fonts/8bd7856b64b4313341ebfbc0136c9d74.woff);
   font-weight: 500;
+}
+
+@font-face {
+  font-family: Helvetica;
+  src: url(../../assets/fonts/eb797abfa6a5cca2463e423c07c4f6ea.woff);
+  font-weight: 700;
+}
+
+:root {
+  // font
+  --primary-font: Helvetica, Arial, sans-serif;
+
+  // color
+  --primary-color: #ee4d2d;
+  --brand-primary-color: #fb5631;
+  --text-primary-color: #212121;
+  --text-color: #ffffff;
+  --error-color: #ff424f;
+
+  --black-color: #222222;
+  --black-1-color: #222222;
+
+  --white-color: #ffffff;
+  --white-2-color: #fff6f7;
+
+  --yellow-color: #ffbf00;
+
+  --gray-color: #ccc;
 }

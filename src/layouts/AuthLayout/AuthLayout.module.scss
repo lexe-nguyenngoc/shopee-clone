@@ -1,0 +1,19 @@
+.wrapper {
+  background-color: rgb(238, 77, 45);
+  width: 100%;
+  height: 600px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1040px;
+  height: 100%;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  background: url('https://cf.shopee.vn/file/5569eb9dc7e09e2dbed5315b8f2ea8ba')
+    no-repeat;
+}
