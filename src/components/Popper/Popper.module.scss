@@ -1,0 +1,19 @@
+.popper {
+  width: 100%;
+  position: relative;
+
+  div[data-tippy-root] {
+    width: 100%;
+  }
+}
+
+.wrapper {
+  width: 100%;
+  background-color: var(--white-color);
+  padding: 14px 10px;
+
+  background-color: #fff;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 26%);
+  border-radius: 2px;
+  overflow: hidden;
+}

@@ -164,3 +164,15 @@
     text-transform: capitalize;
   }
 }
+
+.popper {
+  div[data-tippy-root] {
+    inset: 0px 30% auto 0px;
+  }
+
+  .wrapper {
+    width: unset;
+    position: absolute;
+    inset: 0 83px auto 0;
+  }
+}
