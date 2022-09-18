@@ -2,6 +2,8 @@ import { forwardRef } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
+
 import classNames from 'classnames/bind';
 
 import styles from './Button.module.scss';
@@ -12,6 +14,8 @@ const Button = forwardRef(
   (
     {
       children,
+      loading,
+      disabled,
       className,
       type,
       color,
@@ -42,6 +46,7 @@ const Button = forwardRef(
     return (
       <WrapComp
         ref={ref}
+        disabled={loading || disabled}
         className={cx('btn', className, color, variant)}
         style={{
           width,
@@ -51,7 +56,11 @@ const Button = forwardRef(
         }}
         {...props}
       >
-        {children}
+        {loading ? (
+          <AiOutlineLoading3Quarters className={cx('loading')} />
+        ) : (
+          children
+        )}
       </WrapComp>
     );
   }
@@ -59,6 +68,8 @@ const Button = forwardRef(
 
 Button.propTypes = {
   children: PropTypes.node,
+  loading: PropTypes.bool,
+  disabled: PropTypes.bool,
   className: PropTypes.string,
   type: PropTypes.string,
   color: PropTypes.oneOf([
@@ -76,6 +87,8 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
+  loading: false,
+  disabled: false,
   type: 'button',
   color: 'default',
   variant: 'normal',

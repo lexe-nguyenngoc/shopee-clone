@@ -4,9 +4,9 @@ import { Navigate } from 'react-router-dom';
 import { useAuth } from '~/hooks';
 
 const PrivateRoute = ({ children }) => {
-  const { auth } = useAuth();
+  const { isAuthentication } = useAuth();
 
-  return auth ? children : <Navigate to='/auth' />;
+  return isAuthentication ? children : <Navigate to='/auth' />;
 };
 
 export default PrivateRoute;

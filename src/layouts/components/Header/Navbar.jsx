@@ -1,10 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 
 import classNames from 'classnames/bind';
+import images from '~/assets/images';
 
 import { HelpIcon, LanguageIcon, NotificationIcon } from '~/assets/svgs';
 
 import Button from '~/components/Button';
+import Image from '~/components/Image';
+import { useAuth } from '~/hooks';
 import Container from '~/layouts/components/Container';
 
 import styles from './Header.module.scss';
@@ -12,6 +15,8 @@ import styles from './Header.module.scss';
 const cx = classNames.bind(styles);
 
 const Navbar = () => {
+  const { auth, isAuthentication } = useAuth();
+
   return (
     <Container className={cx('container')}>
       <nav className={cx('navbar')}>
@@ -74,16 +79,33 @@ const Navbar = () => {
           <LanguageIcon />
           Tiếng việt
         </Button>
-        <Button to='/auth' className={cx('navbar__item')} color='white'>
-          Đăng ký
-        </Button>
-        <Button
-          to='/auth/sign-up'
-          className={cx('navbar__item', 'separate')}
-          color='white'
-        >
-          Đăng nhập
-        </Button>
+        {isAuthentication ? (
+          <Button className={cx('navbar__item user')} color='white'>
+            <Image
+              className={cx('avatar')}
+              fallback={() => images.blankAvatar}
+            />
+            <span>
+              {auth.data.user?.fullName ||
+                auth.data.user?.username ||
+                auth.data.user?.email ||
+                auth.data.user?.phone}
+            </span>
+          </Button>
+        ) : (
+          <>
+            <Button to='/auth' className={cx('navbar__item')} color='white'>
+              Đăng ký
+            </Button>
+            <Button
+              to='/auth/sign-up'
+              className={cx('navbar__item', 'separate')}
+              color='white'
+            >
+              Đăng nhập
+            </Button>
+          </>
+        )}
       </nav>
     </Container>
   );

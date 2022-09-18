@@ -1,0 +1,18 @@
+.search-suggest {
+  width: 100%;
+
+  &__item {
+    display: block;
+    padding: 10px;
+
+    color: rgba(0, 0, 0, 0.87);
+
+    font-size: 1.4rem;
+    white-space: nowrap;
+    text-decoration: none;
+
+    span {
+      font-weight: 500;
+    }
+  }
+}

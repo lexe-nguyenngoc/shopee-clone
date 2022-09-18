@@ -7,3 +7,4 @@ export { ReactComponent as CartIcon } from './cart.svg';
 export { ReactComponent as IconQRIcon } from './icon-qr.svg';
 export { ReactComponent as EyeIcon } from './eye.svg';
 export { ReactComponent as EyeHideIcon } from './eye-hide.svg';
+export { ReactComponent as CloseIcon } from './close.svg';

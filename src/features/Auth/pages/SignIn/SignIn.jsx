@@ -10,6 +10,9 @@ import { InputField, PasswordField } from '~/components/Form';
 import { useForm } from 'react-hook-form';
 import Social from '../../components/Social';
 import Redirect from '../../components/Redirect';
+import { useAuth } from '~/hooks';
+import { httpStatus } from '~/constants';
+import Error from '../../components/Error';
 
 const cx = classNames.bind(styles);
 
@@ -19,15 +22,15 @@ const signInSchema = new yup.object({
 });
 
 const SignIn = () => {
+  const { auth, onSignIn } = useAuth();
+
   const {
     register,
     formState: { errors, isValid },
     handleSubmit,
   } = useForm({ resolver: yupResolver(signInSchema), mode: 'onChange' });
 
-  const handleLogin = (data) => {
-    console.log({ data });
-  };
+  const isLoading = auth.status === httpStatus.LOADING;
 
   return (
     <Group className={cx('sign-in')}>
@@ -38,13 +41,15 @@ const SignIn = () => {
           <IconQRIcon />
         </Button>
       </div>
-      <form onSubmit={handleSubmit(handleLogin)}>
+      <Error error={auth.error} />
+      <form onSubmit={handleSubmit(onSignIn)}>
         <InputField
           id='loginKey'
           name='loginKey'
           placeholder='Email/Số điện thoại/Tên đăng nhập'
           register={register}
           message={errors.loginKey?.message}
+          readOnly={isLoading}
         />
         <PasswordField
           id='password'
@@ -52,6 +57,7 @@ const SignIn = () => {
           placeholder='Mật khẩu'
           register={register}
           message={errors.password?.message}
+          readOnly={isLoading}
         />
 
         <Button
@@ -59,6 +65,7 @@ const SignIn = () => {
           color='primary'
           variant='contained'
           disabled={!isValid}
+          loading={isLoading}
         >
           ĐĂNG NHẬP
         </Button>

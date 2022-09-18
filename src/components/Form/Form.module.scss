@@ -44,7 +44,7 @@
     border-color: var(--error-color);
   }
 
-  &:has(input:focus) {
+  &:has(input:focus:not(input[readonly])) {
     border-color: rgba(0, 0, 0, 0.54);
   }
 

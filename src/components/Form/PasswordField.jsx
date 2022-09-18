@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
-
 import classNames from 'classnames/bind';
+
+import { EyeHideIcon, EyeIcon } from '~/assets/svgs';
+
+import { useToggle } from '~/hooks';
 
 import FormGroup from './FormGroup';
 
 import styles from './Form.module.scss';
-import { useState } from 'react';
-import { EyeHideIcon, EyeIcon } from '~/assets/svgs';
-import useToggle from '~/hooks/useToggle';
 
 const cx = classNames.bind(styles);
 

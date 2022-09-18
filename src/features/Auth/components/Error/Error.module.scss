@@ -1,0 +1,21 @@
+.error {
+  display: flex;
+  padding: 12px 15px;
+  margin-bottom: 25px;
+
+  background-color: #fff9fa;
+
+  border: 1px solid rgba(255, 66, 79, 0.2);
+  border-radius: 2px;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+  }
+
+  span {
+    flex: 1;
+    font-size: 1.4rem;
+  }
+}
