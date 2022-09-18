@@ -23,8 +23,6 @@ const PasswordField = ({
 }) => {
   const [show, toggleShow] = useToggle();
 
-  console.log({ show });
-
   return (
     <FormGroup
       required={required}
