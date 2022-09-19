@@ -40,7 +40,7 @@ const FilterGroup = ({ heading, name, path }) => {
     };
   }, [query.q]);
 
-  const dataRender = collapsed ? data.slice(0, 4) : data;
+  const dataRender = collapsed && data.length > 4 ? data.slice(0, 4) : data;
 
   return (
     <div className={cx('filter-group')}>
@@ -58,7 +58,7 @@ const FilterGroup = ({ heading, name, path }) => {
             </li>
           );
         })}
-        {collapsed && (
+        {collapsed && data.length > 4 && (
           <li>
             <button className={cx('more')} onClick={toggleCollapsed}>
               Thêm <ArrowDownIcon />

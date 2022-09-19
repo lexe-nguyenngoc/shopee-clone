@@ -12,9 +12,24 @@ const useQuery = () => {
   }, [searchParams]);
 
   const handleAddQuery = useCallback(
-    (data, replaceAll = false) => {
+    (data, replaceAll = false, removeField = []) => {
+      removeField.forEach((field) => {
+        delete query[field];
+      });
+
       if (replaceAll) return setSearchParams(data);
       setSearchParams({ ...query, ...data });
+    },
+    [query, setSearchParams]
+  );
+
+  const handleRemoveQuery = useCallback(
+    (name, replaceAll = false) => {
+      if (replaceAll) return setSearchParams({});
+
+      delete query[name];
+
+      setSearchParams(query);
     },
     [query, setSearchParams]
   );
@@ -22,6 +37,7 @@ const useQuery = () => {
   return {
     query,
     onAddQuery: handleAddQuery,
+    onRemoveQuery: handleRemoveQuery,
   };
 };
 

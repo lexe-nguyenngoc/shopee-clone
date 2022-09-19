@@ -10,4 +10,7 @@ export { ReactComponent as EyeHideIcon } from './eye-hide.svg';
 export { ReactComponent as CloseIcon } from './close.svg';
 export { ReactComponent as FilterIcon } from './filter.svg';
 export { ReactComponent as CheckboxIcon } from './checkbox.svg';
+export { ReactComponent as ArrowLeftIcon } from './arrow-left.svg';
+export { ReactComponent as ArrowRightIcon } from './arrow-right.svg';
 export { ReactComponent as ArrowDownIcon } from './arrow-down.svg';
+export { ReactComponent as LightBulbIcon } from './light-bulb.svg';
