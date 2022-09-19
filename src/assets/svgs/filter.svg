@@ -1,0 +1,11 @@
+<svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon">
+    <g>
+        <polyline fill="none" points="5.5 13.2 5.5 5.8 1.5 1.2 13.5 1.2 9.5 5.8 9.5 10.2" stroke-linecap="round"
+            stroke-linejoin="round" stroke-miterlimit="10"></polyline>
+        <polyline id="filter__ticked" points="9.2 11.3 10.3 12.1 11.8 10.4"
+            style="fill: none; stroke: rgb(255, 255, 255); stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10; stroke-width: 0.5;">
+        </polyline>
+        <circle cx="10.5" cy="11.2" r="2.5" stroke="none"></circle>
+        <use xlink:href="#filter__ticked"></use>
+    </g>
+</svg>

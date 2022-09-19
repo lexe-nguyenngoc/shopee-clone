@@ -28,7 +28,6 @@ axiosClient.interceptors.response.use(
 );
 
 const GET = (url, params) => {
-  console.log({ url, params });
   return axiosClient.get(url, {
     params,
   });

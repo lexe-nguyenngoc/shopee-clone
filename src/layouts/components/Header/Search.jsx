@@ -1,19 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-
 import classNames from 'classnames/bind';
-
-import styles from './Header.module.scss';
-import { SearchIcon } from '~/assets/svgs';
-import Popper, { Wrapper } from '~/components/Popper';
-import SearchSuggest from '../SearchSuggest';
-import { useQuery } from '~/hooks';
 import { useDispatch, useSelector } from 'react-redux';
+
 import {
   suggestKeywordRequest,
   suggestKeywordSelector,
 } from '~/layouts/layoutSlice';
-import useDebounce from '~/hooks/useDebounce';
+
+import { SearchIcon } from '~/assets/svgs';
+import { useQuery, useDebounce } from '~/hooks';
+
+import Popper, { Wrapper } from '~/components/Popper';
+import SearchSuggest from '../SearchSuggest';
+
+import styles from './Header.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -25,6 +26,8 @@ const Search = (props) => {
 
   const [isFocus, setIsFocus] = useState(false);
   const [keyword, setKeyword] = useState(query.q || '');
+
+  const inputRef = useRef();
 
   const keywordDebounced = useDebounce(keyword, 500);
 
@@ -42,8 +45,22 @@ const Search = (props) => {
 
   const handleSearch = (e) => {
     e.preventDefault();
+
     const q = keyword.trim().replace(/ +/g, ' ');
-    if (q) onAddQuery({ name_like: q });
+
+    if (query.q === q) return;
+
+    if (query.q && !q) {
+      onAddQuery({}, true);
+      setIsFocus(false);
+      inputRef.current.blur();
+    }
+
+    if (q) {
+      onAddQuery({ q }, true);
+      setIsFocus(false);
+      inputRef.current.blur();
+    }
   };
 
   useEffect(() => {
@@ -69,6 +86,7 @@ const Search = (props) => {
           value={keyword}
           onChange={handleKeywordChange}
           onFocus={() => setIsFocus(true)}
+          ref={inputRef}
         />
         <button type='submit'>
           <SearchIcon />
@@ -77,9 +95,5 @@ const Search = (props) => {
     </Popper>
   );
 };
-
-Search.propTypes = {};
-
-Search.defaultProps = {};
 
 export default Search;

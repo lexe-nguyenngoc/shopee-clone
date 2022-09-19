@@ -8,3 +8,6 @@ export { ReactComponent as IconQRIcon } from './icon-qr.svg';
 export { ReactComponent as EyeIcon } from './eye.svg';
 export { ReactComponent as EyeHideIcon } from './eye-hide.svg';
 export { ReactComponent as CloseIcon } from './close.svg';
+export { ReactComponent as FilterIcon } from './filter.svg';
+export { ReactComponent as CheckboxIcon } from './checkbox.svg';
+export { ReactComponent as ArrowDownIcon } from './arrow-down.svg';

@@ -1,0 +1,58 @@
+.sidebar {
+  width: 100%;
+  max-width: 190px;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 1.875rem;
+
+  color: rgba(0, 0, 0, 0.8);
+
+  font-weight: 700;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+
+  svg {
+    width: 12px;
+    height: 12px;
+    stroke: currentColor;
+    margin-right: 10px;
+  }
+}
+
+.filter-group {
+  padding: 20px 0;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+
+  &__heading {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  &__list {
+    li {
+      padding: 8px 0;
+    }
+  }
+}
+
+.more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 20px;
+
+  font-weight: 300;
+  font-size: 1.4rem;
+
+  svg {
+    width: 7px;
+    height: 7px;
+    margin-left: 10px;
+  }
+}

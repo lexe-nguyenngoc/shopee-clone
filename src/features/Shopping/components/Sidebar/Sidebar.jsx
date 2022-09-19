@@ -1,17 +1,32 @@
-import PropTypes from 'prop-types';
-
 import classNames from 'classnames/bind';
 
-import styles from './Sidebar.module.scss';
+import { FilterIcon } from '~/assets/svgs';
+import { httpPaths } from '~/constants';
 
+import FilterGroup from './FilterGroup';
+
+import styles from './Sidebar.module.scss';
 const cx = classNames.bind(styles);
 
-const Sidebar = (props) => {
-  return <div>Sidebar</div>;
+const Sidebar = () => {
+  return (
+    <div className={cx('sidebar')}>
+      <h1 className={cx('heading')}>
+        <FilterIcon />
+        Bộ lọc tìm kiếm
+      </h1>
+      <FilterGroup
+        heading={'Theo danh mục'}
+        name='category'
+        path={httpPaths.category}
+      />
+      <FilterGroup
+        heading={'Nơi bán'}
+        name='address'
+        path={httpPaths.address}
+      />
+    </div>
+  );
 };
-
-Sidebar.propTypes = {};
-
-Sidebar.defaultProps = {};
 
 export default Sidebar;

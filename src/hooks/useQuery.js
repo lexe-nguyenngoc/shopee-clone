@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 const useQuery = () => {
@@ -11,9 +11,17 @@ const useQuery = () => {
     );
   }, [searchParams]);
 
+  const handleAddQuery = useCallback(
+    (data, replaceAll = false) => {
+      if (replaceAll) return setSearchParams(data);
+      setSearchParams({ ...query, ...data });
+    },
+    [query, setSearchParams]
+  );
+
   return {
     query,
-    onAddQuery: setSearchParams,
+    onAddQuery: handleAddQuery,
   };
 };
 
