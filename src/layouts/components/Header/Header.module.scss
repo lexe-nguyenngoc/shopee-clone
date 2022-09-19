@@ -97,6 +97,10 @@
     }
   }
 
+  &__item:has(.avatar) {
+    width: 150px;
+  }
+
   .avatar {
     width: 20px;
     height: 20px;
@@ -181,5 +185,28 @@
     width: unset;
     position: absolute;
     inset: 0 83px auto 0;
+  }
+}
+
+.user-popper {
+  width: 150px;
+}
+
+.user-menu {
+  display: block;
+  padding: 0;
+
+  &__item {
+    display: block;
+    height: 40px;
+    padding-left: 15px;
+
+    font-size: 1.4rem;
+    font-weight: 500;
+    transition: all ease-in 0.25s;
+
+    &:hover {
+      color: #00bfa5;
+    }
   }
 }

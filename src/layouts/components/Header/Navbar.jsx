@@ -7,15 +7,51 @@ import { HelpIcon, LanguageIcon, NotificationIcon } from '~/assets/svgs';
 
 import Button from '~/components/Button';
 import Image from '~/components/Image';
+import Popper, { Wrapper } from '~/components/Popper';
 import { useAuth } from '~/hooks';
 import Container from '~/layouts/components/Container';
+import { uid } from '~/utils';
 
 import styles from './Header.module.scss';
 
 const cx = classNames.bind(styles);
 
 const Navbar = () => {
-  const { auth, isAuthentication } = useAuth();
+  const { auth, isAuthentication, onSignOut } = useAuth();
+
+  const handleRenderUserOption = (attrs) => {
+    const options = [
+      {
+        id: uid(),
+        label: 'Tài khoản của tôi',
+      },
+      {
+        id: uid(),
+        label: 'Đơn mua',
+      },
+      {
+        id: uid(),
+        label: 'Đăng xuất',
+        onClick: onSignOut,
+      },
+    ];
+
+    return (
+      <Wrapper arrow className={cx('user-menu')}>
+        {options.map((item) => {
+          return (
+            <button
+              key={item.id}
+              className={cx('user-menu__item')}
+              onClick={item.onClick}
+            >
+              {item.label}
+            </button>
+          );
+        })}
+      </Wrapper>
+    );
+  };
 
   return (
     <Container className={cx('container')}>
@@ -80,25 +116,31 @@ const Navbar = () => {
           Tiếng việt
         </Button>
         {isAuthentication ? (
-          <Button className={cx('navbar__item user')} color='white'>
-            <Image
-              className={cx('avatar')}
-              fallback={() => images.blankAvatar}
-            />
-            <span>
-              {auth.data.user?.fullName ||
-                auth.data.user?.username ||
-                auth.data.user?.email ||
-                auth.data.user?.phone}
-            </span>
-          </Button>
+          <Popper className={cx('user-popper')} render={handleRenderUserOption}>
+            <Button className={cx('navbar__item user')} color='white'>
+              <Image
+                className={cx('avatar')}
+                fallback={() => images.blankAvatar}
+              />
+              <span>
+                {auth.data.user?.fullName ||
+                  auth.data.user?.username ||
+                  auth.data.user?.email ||
+                  auth.data.user?.phone}
+              </span>
+            </Button>
+          </Popper>
         ) : (
           <>
-            <Button to='/auth' className={cx('navbar__item')} color='white'>
+            <Button
+              to='/auth/sign-up'
+              className={cx('navbar__item')}
+              color='white'
+            >
               Đăng ký
             </Button>
             <Button
-              to='/auth/sign-up'
+              to='/auth'
               className={cx('navbar__item', 'separate')}
               color='white'
             >

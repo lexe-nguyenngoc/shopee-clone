@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Outlet } from 'react-router-dom';
 
 import Header from '~/layouts/components/Header';
-import { Outlet } from 'react-router-dom';
+import Container from './components/Container';
 
 const MainLayout = (props) => {
   return (
     <>
       <Header />
-      <Outlet />
+      <Container>
+        <Outlet />
+      </Container>
     </>
   );
 };

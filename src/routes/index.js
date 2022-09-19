@@ -7,6 +7,7 @@ import PrivateLoginRoute from './PrivateLoginRoute';
 
 const SignIn = lazy(() => import('~/features/Auth/pages/SignIn'));
 const SignUp = lazy(() => import('~/features/Auth/pages/SignUp'));
+const Home = lazy(() => import('~/features/Shopping/pages/Home'));
 
 const routes = [
   {
@@ -16,7 +17,7 @@ const routes = [
     children: [
       {
         index: true,
-        element: <div>Home page</div>,
+        element: <Home />,
       },
     ],
   },

@@ -15,3 +15,13 @@ export const getItem = (key) => {
 
   return null;
 };
+
+export const removeItem = (key) => {
+  const allCookie = document.cookie.split('; ');
+
+  const cookie = allCookie.find((item) => item.startsWith(key));
+  if (cookie)
+    document.cookie = `${cookie}; expires=${new Date(
+      Date.now() - 60 * 1000
+    ).toUTCString()}`;
+};

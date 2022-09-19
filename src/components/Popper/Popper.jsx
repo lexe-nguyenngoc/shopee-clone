@@ -31,7 +31,7 @@ Popper.propTypes = {
 };
 
 Popper.defaultProps = {
-  delay: [0, 400],
+  delay: [0, 200],
 };
 
 export default Popper;

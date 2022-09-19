@@ -6,9 +6,9 @@ import styles from './Popper.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Wrapper = ({ children, className, ...rest }) => {
+const Wrapper = ({ children, arrow, className, ...rest }) => {
   return (
-    <div className={cx('wrapper', className)} {...rest}>
+    <div className={cx('wrapper', className, { arrow })} {...rest}>
       {children}
     </div>
   );
@@ -16,9 +16,12 @@ const Wrapper = ({ children, className, ...rest }) => {
 
 Wrapper.propTypes = {
   children: PropTypes.node.isRequired,
+  arrow: PropTypes.bool,
   className: PropTypes.string,
 };
 
-Wrapper.defaultProps = {};
+Wrapper.defaultProps = {
+  arrow: false,
+};
 
 export default Wrapper;
