@@ -54,6 +54,7 @@ const Sortbar = () => {
           if (!option.children)
             return (
               <button
+                key={option.id}
                 className={cx('option', {
                   active:
                     query.sortBy === option.sortBy ||
@@ -69,12 +70,14 @@ const Sortbar = () => {
 
           return (
             <Popper
+              key={option.id}
               placement='bottom'
               offset={[0, 2]}
               render={() => (
                 <Wrapper className={cx('dropdown')}>
                   {option.children.map((item) => (
                     <button
+                      key={item.id}
                       className={cx('option', 'item', {
                         active:
                           query.orderBy === item.orderBy &&
