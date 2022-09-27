@@ -14,3 +14,6 @@ export { ReactComponent as ArrowLeftIcon } from './arrow-left.svg';
 export { ReactComponent as ArrowRightIcon } from './arrow-right.svg';
 export { ReactComponent as ArrowDownIcon } from './arrow-down.svg';
 export { ReactComponent as LightBulbIcon } from './light-bulb.svg';
+export { ReactComponent as ShopeePlaceholder } from './shopee-image-holder.svg';
+export { ReactComponent as StarIcon } from './star.svg';
+export { ReactComponent as StarEmptyIcon } from './star-empty.svg';

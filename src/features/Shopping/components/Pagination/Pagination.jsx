@@ -4,8 +4,6 @@ import classNames from 'classnames/bind';
 import { ArrowLeftIcon, ArrowRightIcon } from '~/assets/svgs';
 
 import styles from './Pagination.module.scss';
-import { useQuery } from '~/hooks';
-import { useEffect } from 'react';
 
 const cx = classNames.bind(styles);
 
@@ -45,22 +43,14 @@ const generatePagination = (page, totalPages) => {
   return pages;
 };
 
-const Pagination = ({ _limit, _page, _totalRows }) => {
-  const { query, onAddQuery } = useQuery();
+const Pagination = ({ limit, page, totalRows, onPageChange }) => {
+  const totalPages = Math.ceil(totalRows / limit);
 
-  const totalPages = Math.ceil(_totalRows / _limit);
-
-  const pages = generatePagination(_page, totalPages);
-
-  const page = parseInt(query.page) ?? _page;
+  const pages = generatePagination(page, totalPages);
 
   const handlePageChange = (page) => {
-    onAddQuery({ page });
+    if (onPageChange && page > 0 && page <= totalPages) onPageChange(page);
   };
-
-  useEffect(() => {
-    onAddQuery({ page: _page });
-  }, [_page]);
 
   return (
     <div className={cx('pagination')}>
@@ -115,15 +105,16 @@ const Pagination = ({ _limit, _page, _totalRows }) => {
 };
 
 Pagination.propTypes = {
-  _limit: PropTypes.number,
-  _page: PropTypes.number,
-  _totalRows: PropTypes.number,
+  limit: PropTypes.number,
+  page: PropTypes.number,
+  totalRows: PropTypes.number,
+  onPageChange: PropTypes.func,
 };
 
 Pagination.defaultProps = {
-  _limit: 10,
-  _page: 1,
-  _totalRows: 1,
+  limit: 10,
+  page: 1,
+  totalRows: 1,
 };
 
 export default Pagination;

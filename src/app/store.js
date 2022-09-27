@@ -9,6 +9,9 @@ import authReducer, {
 import layoutReducer, {
   ROOT_STATE_NAME as layout,
 } from '~/layouts/layoutSlice';
+import shoppingReducer, {
+  ROOT_STATE_NAME as shopping,
+} from '~/features/Shopping/shoppingSlice';
 
 const saga = sagaMiddleware();
 
@@ -16,6 +19,7 @@ const store = configureStore({
   reducer: {
     [auth]: authReducer,
     [layout]: layoutReducer,
+    [shopping]: shoppingReducer,
   },
   middleware: (defaultMiddleware) => defaultMiddleware().concat(saga),
 });

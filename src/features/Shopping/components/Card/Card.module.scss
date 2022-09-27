@@ -1,0 +1,103 @@
+.card {
+  background-color: var(--white-color);
+
+  box-shadow: 0px 1px 2px 0px rgba($color: #000000, $alpha: 0.1);
+  border-radius: 2px;
+  transition: all ease-in 0.25s;
+
+  overflow: hidden;
+
+  &.click {
+    cursor: pointer;
+  }
+
+  &:hover {
+    box-shadow: 0px 1px 20px 0px rgba($color: #000000, $alpha: 0.05);
+    transform: matrix(1, 0, 0, 1, 0, -1);
+  }
+
+  &__favorite {
+    position: absolute;
+  }
+
+  &__discount {
+    position: absolute;
+    display: none;
+  }
+
+  &__name {
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    color: #000;
+
+    font-size: 1.2rem;
+
+    min-height: 28px;
+  }
+
+  &__group {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+
+    &.price {
+      margin-top: 8px;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__container {
+    padding: 8px;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  &__price {
+    color: #000;
+
+    text-decoration: line-through;
+    font-size: 1.4rem;
+
+    &.sell {
+      color: var(--primary-color);
+      font-size: 1.6rem;
+      text-decoration: none;
+    }
+
+    &::before {
+      content: '₫';
+    }
+  }
+
+  &__sold {
+    font-size: 1.2rem;
+  }
+
+  &__address {
+    margin-top: 8px;
+    font-size: 1.2rem;
+  }
+
+  &__tags {
+    display: flex;
+    align-items: center;
+    column-gap: 2px;
+  }
+
+  &__tag {
+    display: block;
+    padding: 2px 5px;
+
+    font-size: 1rem;
+
+    color: var(--primary-color);
+
+    border: 1px solid var(--primary-color);
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
