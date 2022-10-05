@@ -9,30 +9,50 @@ import styles from './Image.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Image = ({ className, src, alt, fallback: customFallback }) => {
-  const [fallback, setFallback] = useState();
+const Image = ({
+  className,
+  src: customSrc,
+  alt,
+  fallback: customFallback,
+}) => {
+  const [src, setSrc] = useState();
   const [loaded, setLoaded] = useState(false);
+
+  const ref = useRef();
 
   const handleFallback = () => {
     if (customFallback) {
-      return setFallback(customFallback());
+      return setSrc(customFallback());
     }
 
-    setFallback(images.blankImage);
+    setSrc(images.blankImage);
   };
 
   useEffect(() => {
-    if (!src) handleFallback();
-  }, [src, customFallback]);
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        observer.disconnect();
+
+        if (!customSrc) return handleFallback();
+        setSrc(customSrc);
+      }
+    });
+
+    observer.observe(ref.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [customSrc]);
 
   return (
-    <div className={cx(className, 'image')}>
+    <div className={cx(className, 'image')} ref={ref}>
       <img
-        src={fallback || src}
+        src={src}
         alt={alt}
         onError={handleFallback}
         onLoad={() => {
-          setLoaded(true);
+          if (src) setLoaded(true);
         }}
       />
       {!loaded && (
