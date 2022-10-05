@@ -8,6 +8,9 @@ import PrivateLoginRoute from './PrivateLoginRoute';
 const SignIn = lazy(() => import('~/features/Auth/pages/SignIn'));
 const SignUp = lazy(() => import('~/features/Auth/pages/SignUp'));
 const Home = lazy(() => import('~/features/Shopping/pages/Home'));
+const ProductDetail = lazy(() =>
+  import('~/features/Shopping/pages/ProductDetail')
+);
 
 const routes = [
   {
@@ -18,6 +21,13 @@ const routes = [
       {
         index: true,
         element: <Home />,
+      },
+      {
+        element: <Home />,
+      },
+      {
+        path: 'product/:id',
+        element: <ProductDetail />,
       },
     ],
   },

@@ -22,7 +22,7 @@ const useAuth = () => {
 
   return {
     auth,
-    isAuthentication: auth.data?.token,
+    isAuthentication: !!auth.data?.token,
     onSignIn,
     onSignOut,
   };

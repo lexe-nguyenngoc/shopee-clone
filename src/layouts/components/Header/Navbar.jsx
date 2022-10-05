@@ -19,6 +19,8 @@ const cx = classNames.bind(styles);
 const Navbar = () => {
   const { auth, isAuthentication, onSignOut } = useAuth();
 
+  console.log({ isAuthentication });
+
   const handleRenderUserOption = (attrs) => {
     const options = [
       {
@@ -118,10 +120,9 @@ const Navbar = () => {
         {isAuthentication ? (
           <Popper className={cx('user-popper')} render={handleRenderUserOption}>
             <Button className={cx('navbar__item user')} color='white'>
-              <Image
-                className={cx('avatar')}
-                fallback={() => images.blankAvatar}
-              />
+              <div className={cx('avatar')}>
+                <Image fallback={() => images.blankAvatar} />
+              </div>
               <span>
                 {auth.data.user?.fullName ||
                   auth.data.user?.username ||

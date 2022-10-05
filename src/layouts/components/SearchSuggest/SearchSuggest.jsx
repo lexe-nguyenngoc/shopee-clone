@@ -18,7 +18,7 @@ const SearchSuggest = ({ data, keyword }) => {
         return (
           <Link
             key={item.id}
-            to={`/search?q=${item.name}`}
+            to={`/?q=${item.name}`}
             className={cx('search-suggest__item')}
             dangerouslySetInnerHTML={{
               __html: sanitizeDOM(
