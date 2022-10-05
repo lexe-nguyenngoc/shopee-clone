@@ -16,15 +16,15 @@ const FilterGroup = ({ heading, name, path }) => {
   const [data, setData] = useState([]);
   const [collapsed, toggleCollapsed] = useToggle(true);
 
-  const { query, onAddQuery } = useQuery();
+  const { query, onAddQuery, onRemoveQuery } = useQuery();
 
   const handleSelected = (item) => {
-    let result = [item];
-    if (query[name]) {
-      result.push(query[name]);
+    if (query[name] === item) {
+      onRemoveQuery(name);
+      return;
     }
 
-    onAddQuery({ [name]: result.join(',') });
+    onAddQuery({ [name]: item });
   };
 
   useEffect(() => {

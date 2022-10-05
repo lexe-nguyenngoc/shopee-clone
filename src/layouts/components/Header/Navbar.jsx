@@ -19,8 +19,6 @@ const cx = classNames.bind(styles);
 const Navbar = () => {
   const { auth, isAuthentication, onSignOut } = useAuth();
 
-  console.log({ isAuthentication });
-
   const handleRenderUserOption = (attrs) => {
     const options = [
       {

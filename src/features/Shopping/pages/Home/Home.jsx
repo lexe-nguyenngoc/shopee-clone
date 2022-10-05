@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useQuery, useWhyDidYouUpdate } from '~/hooks';
+import { useQuery } from '~/hooks';
 
 import { getProductsRequest, getProductsSelector } from '../../shoppingSlice';
 
@@ -45,13 +45,35 @@ const Home = () => {
   };
 
   useEffect(() => {
+    const { page, limit, sortBy, sortType: _order = 'desc', ...rest } = query;
+
+    let _sort;
+
+    switch (sortBy) {
+      case 'ctime':
+        _sort = 'createdAt';
+        break;
+
+      case 'sales':
+        _sort = 'soldQuantity';
+        break;
+
+      case 'price':
+        _sort = 'sellPrice';
+        break;
+      default:
+        break;
+    }
+
     dispatch(
       getProductsRequest({
         ...params,
-        q: query.q,
+        ...rest,
+        _sort,
+        _order: _sort ? _order : undefined,
       })
     );
-  }, [dispatch, query.q, params]);
+  }, [dispatch, query, params]);
 
   useEffect(() => {
     window.scrollTo({
