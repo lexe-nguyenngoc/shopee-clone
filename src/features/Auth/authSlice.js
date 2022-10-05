@@ -29,7 +29,11 @@ const authSlice = createSlice({
       state.auth.error = action.payload;
     },
     resetAuth: (state) => {
-      state.auth = initialState.auth;
+      state.auth = {
+        status: httpStatus.IDLE,
+        data: {},
+        error: null,
+      };
     },
   },
 });
