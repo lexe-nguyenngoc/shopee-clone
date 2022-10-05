@@ -1,3 +1,6 @@
+$mark: rgb(255, 212, 36);
+$mark-color: #ee4d2d;
+
 .card {
   background-color: var(--white-color);
 
@@ -5,7 +8,7 @@
   border-radius: 2px;
   transition: all ease-in 0.25s;
 
-  overflow: hidden;
+  position: relative;
 
   &.click {
     cursor: pointer;
@@ -18,10 +21,78 @@
 
   &__favorite {
     position: absolute;
+    top: 10px;
+    left: -3px;
+
+    padding: 2px 4px;
+
+    background-color: var(--primary-color);
+    color: var(--white-color);
+
+    font-size: 1.4rem;
+
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 100%;
+
+      display: block;
+
+      border-width: 2px;
+      border-style: solid;
+      border-color: transparent transparent #913113 transparent;
+      rotate: 45deg;
+      transform: translate(-1px, -2px);
+    }
   }
 
   &__discount {
     position: absolute;
+    top: 0;
+    right: 0;
+    width: 36px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    background-color: $mark;
+    color: $mark-color;
+
+    font-size: 1.2rem;
+    font-weight: 400;
+
+    * {
+      z-index: 10;
+    }
+
+    .label {
+      color: var(--white-color);
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+
+      display: block;
+
+      border-width: 8px 18px;
+
+      border-style: solid;
+      border-color: red blue transparent green;
+      border-color: $mark $mark transparent $mark;
+
+      transform: translateY(-50%);
+    }
   }
 
   &__name {

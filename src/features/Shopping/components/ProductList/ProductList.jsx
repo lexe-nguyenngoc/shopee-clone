@@ -18,7 +18,9 @@ const ProductList = ({ data }) => {
   return (
     <div className={cx('card-list')}>
       {data.map((item) => (
-        <Card key={item.id} item={item} onClick={handleItemClick} />
+        <div className={cx('col')} key={item.id}>
+          <Card item={item} onClick={handleItemClick} />
+        </div>
       ))}
     </div>
   );

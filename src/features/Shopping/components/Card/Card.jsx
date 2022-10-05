@@ -25,13 +25,17 @@ const Card = ({ item, onClick }) => {
           className={cx('img')}
           fallback={() => {}}
         />
-        {item.isFavorite && (
-          <span className={cx('card__favorite')}>Yêu thích+</span>
-        )}
-        {item.discount > 0 && (
-          <span className={cx('card__discount')}>{item.discount}</span>
-        )}
       </div>
+
+      {item.isFavorite && (
+        <span className={cx('card__favorite')}>Yêu thích+</span>
+      )}
+      {item.discount > 0 && (
+        <div className={cx('card__discount')}>
+          <div>{item.discount}%</div>
+          <div className={cx('label')}>GIẢM</div>
+        </div>
+      )}
       <div className={cx('card__container')}>
         <h3 className={cx('card__name')}>{item.name}</h3>
         <div className={cx('card__tags')}>

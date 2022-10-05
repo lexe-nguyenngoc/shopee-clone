@@ -1,7 +1,17 @@
 .card-list {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 10px;
+  display: flex;
+  flex-flow: row wrap;
 
   margin: 8px 0 40px;
+
+  .col {
+    width: 100%;
+    max-width: calc((100% - 40px) / 5);
+    margin-left: 10px;
+    margin-bottom: 10px;
+
+    &:nth-child(5n-4) {
+      margin-left: 0;
+    }
+  }
 }
