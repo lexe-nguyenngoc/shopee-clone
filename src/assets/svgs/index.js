@@ -17,3 +17,7 @@ export { ReactComponent as LightBulbIcon } from './light-bulb.svg';
 export { ReactComponent as ShopeePlaceholder } from './shopee-image-holder.svg';
 export { ReactComponent as StarIcon } from './star.svg';
 export { ReactComponent as StarEmptyIcon } from './star-empty.svg';
+export { ReactComponent as ActiveIcon } from './active.svg';
+export { ReactComponent as PlusIcon } from './plus.svg';
+export { ReactComponent as ReduceIcon } from './reduce.svg';
+export { ReactComponent as CartBTNIcon } from './cart-btn.svg';

@@ -66,3 +66,11 @@ ol {
 svg {
   vertical-align: middle;
 }
+
+.flex {
+  display: flex;
+
+  &.align-center {
+    align-items: center;
+  }
+}

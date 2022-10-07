@@ -1,0 +1,44 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+
+  height: 32px;
+
+  border: 1px solid rgba($color: #000000, $alpha: 0.09);
+
+  input {
+    width: 52px;
+    height: 100%;
+    text-align: center;
+
+    border-left: 1px solid rgba($color: #000000, $alpha: 0.09);
+    border-right: 1px solid rgba($color: #000000, $alpha: 0.09);
+    transition: all ease-in 0.25s;
+
+    &:focus {
+      border: 1px solid var(--primary-color);
+    }
+  }
+}
+
+.btn {
+  width: 32px;
+  height: 100%;
+
+  svg {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+.label {
+  color: #757575;
+  font-size: 1.4rem;
+
+  margin-left: 15px;
+}

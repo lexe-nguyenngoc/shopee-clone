@@ -1,0 +1,60 @@
+.option {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 8px;
+
+  .item {
+    padding: 4px 12px;
+    min-width: 80px;
+    height: 34px;
+    border: 1px solid rgba($color: #000000, $alpha: 0.09);
+    border-radius: 2px;
+
+    font-size: 1.4rem;
+    font-weight: 300;
+    transition: all ease-in 0.25s;
+
+    &:hover,
+    &.active {
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+
+    &.active {
+      position: relative;
+    }
+  }
+
+  .active-icon {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    width: 15px;
+    height: 15px;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+
+      border: 8px solid;
+      border-color: transparent var(--primary-color) var(--primary-color)
+        transparent;
+    }
+
+    svg {
+      width: 8px;
+      height: 8px;
+
+      fill: var(--white-color);
+
+      z-index: 2;
+    }
+  }
+}
