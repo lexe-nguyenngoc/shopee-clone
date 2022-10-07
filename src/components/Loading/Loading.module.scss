@@ -1,0 +1,50 @@
+.main-lazy-loading {
+  position: fixed;
+  inset: 0;
+  background-color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+
+  .dots {
+    display: flex;
+    align-items: center;
+
+    div {
+      width: 10px;
+      height: 10px;
+
+      background-color: #ee4d2d;
+
+      border-radius: 50%;
+
+      animation: animate-dot-falling alternate 0.35s infinite linear;
+      animation-delay: 0.1s;
+
+      &:not(&:first-child) {
+        margin-left: 10px;
+      }
+
+      &:nth-child(1) {
+        animation-delay: 0.25s;
+      }
+      &:nth-child(2) {
+        animation-delay: 0.45s;
+      }
+      &:nth-child(3) {
+        animation-delay: 0.65s;
+      }
+    }
+  }
+}
+
+@keyframes animate-dot-falling {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(10px);
+  }
+}

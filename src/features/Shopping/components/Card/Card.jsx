@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 
 import styles from './Card.module.scss';
 import Image from '~/components/Image';
-import { formatPrice } from '~/utils';
+import { formatter } from '~/utils';
 import Rating from '~/components/Rating/Rating';
 
 const cx = classNames.bind(styles);
@@ -46,9 +46,11 @@ const Card = ({ item, onClick }) => {
           ))}
         </div>
         <div className={cx('card__group', 'price')}>
-          <span className={cx('card__price')}>{formatPrice(item.price)}</span>
+          <span className={cx('card__price')}>
+            {formatter.price(item.price)}
+          </span>
           <span className={cx('card__price', 'sell')}>
-            {formatPrice(item.sellPrice)}
+            {formatter.price(item.sellPrice)}
           </span>
         </div>
         <div className={cx('card__group')}>

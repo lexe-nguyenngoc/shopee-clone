@@ -1,18 +1,21 @@
-import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import styles from './SignIn.module.scss';
-import Group from '../../components/Group';
-import Button from '~/components/Button';
-import { IconQRIcon } from '~/assets/svgs';
-import { InputField, PasswordField } from '~/components/Form';
 import { useForm } from 'react-hook-form';
-import Social from '../../components/Social';
-import Redirect from '../../components/Redirect';
+
+import { IconQRIcon } from '~/assets/svgs';
 import { useAuth } from '~/hooks';
 import { httpStatus } from '~/constants';
+
+import { InputField, PasswordField } from '~/components/Form';
+import Button from '~/components/Button';
+
+import Group from '../../components/Group';
+import Social from '../../components/Social';
+import Redirect from '../../components/Redirect';
 import Error from '../../components/Error';
+
+import styles from './SignIn.module.scss';
 
 const cx = classNames.bind(styles);
 

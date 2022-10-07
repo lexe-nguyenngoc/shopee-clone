@@ -5,13 +5,15 @@ import { BrowserRouter } from 'react-router-dom';
 
 import store from '~/app/store';
 
+import { MainLazyLoading } from '~/components/Loading';
 import App from '~/App';
+
 const GlobalStyles = lazy(() => import('~/components/GlobalStyles'));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Suspense fallback={<div>Loading....</div>}>
+    <Suspense fallback={<MainLazyLoading />}>
       <Provider store={store}>
         <GlobalStyles>
           <BrowserRouter>
