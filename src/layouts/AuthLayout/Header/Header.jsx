@@ -1,9 +1,11 @@
 import classNames from 'classnames/bind';
 import { useLocation } from 'react-router-dom';
 
-import { LogoIcon } from '~/assets/svgs';
-import Button from '~/components/Button';
+import { shopping } from '~/routes';
 
+import { LogoIcon } from '~/assets/svgs';
+
+import Button from '~/components/Button';
 import Container from '~/layouts/components/Container';
 
 import styles from './Header.module.scss';
@@ -22,7 +24,7 @@ const Header = () => {
     <header className={cx('header')}>
       <Container className={cx('header__container')}>
         <div className={cx('header__left')}>
-          <Button to='/' className={cx('header__logo')}>
+          <Button to={shopping.index} className={cx('header__logo')}>
             <LogoIcon />
           </Button>
           <h1 className={cx('header__heading')}>{title[pathname]}</h1>

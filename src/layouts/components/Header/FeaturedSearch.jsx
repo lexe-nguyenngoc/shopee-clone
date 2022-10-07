@@ -1,8 +1,11 @@
 import classNames from 'classnames/bind';
 
-import styles from './Header.module.scss';
+import { shopping } from '~/routes';
 import { uid } from '~/utils';
+
 import Button from '~/components/Button';
+
+import styles from './Header.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -47,7 +50,7 @@ const FeaturedSearch = () => {
         <Button
           key={item.id}
           className={cx('featured-search__item')}
-          to={`/search?q=${item.label}`}
+          to={`${shopping.index}?q=${item.label}`}
           color='white'
         >
           {item.label}

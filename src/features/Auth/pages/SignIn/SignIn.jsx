@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import { IconQRIcon } from '~/assets/svgs';
 import { useAuth } from '~/hooks';
 import { httpStatus } from '~/constants';
+import { auth as authRoute } from '~/routes';
 
 import { InputField, PasswordField } from '~/components/Form';
 import Button from '~/components/Button';
@@ -84,7 +85,7 @@ const SignIn = () => {
       <Social data={['facebook', 'google', 'apple']} />
       <Redirect
         label='Bạn mới biết đến Shopee?'
-        to='/auth/sign-up'
+        to={`${authRoute.index}/${authRoute.signUp}`}
         text='Đăng ký'
       />
     </Group>

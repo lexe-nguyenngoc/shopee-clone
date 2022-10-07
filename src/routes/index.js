@@ -12,10 +12,20 @@ const ProductDetail = lazy(() =>
   import('~/features/Shopping/pages/ProductDetail')
 );
 
+export const shopping = {
+  index: '/',
+  product: 'product',
+};
+
+export const auth = {
+  index: '/auth',
+  signIn: 'sign-in',
+  signUp: 'sign-up',
+};
+
 const routes = [
   {
-    path: '/',
-
+    path: shopping.index,
     element: <MainLayout />,
     children: [
       {
@@ -26,13 +36,13 @@ const routes = [
         element: <Home />,
       },
       {
-        path: 'product/:id',
+        path: `${shopping.product}/:id`,
         element: <ProductDetail />,
       },
     ],
   },
   {
-    path: '/auth',
+    path: auth.index,
     element: (
       <PrivateLoginRoute>
         <AuthLayout />
@@ -41,14 +51,14 @@ const routes = [
     children: [
       {
         index: true,
-        element: <Navigate to='/auth/sign-in' />,
+        element: <Navigate to={`${auth.index}/${auth.signIn}`} />,
       },
       {
-        path: 'sign-in',
+        path: auth.signIn,
         element: <SignIn />,
       },
       {
-        path: 'sign-up',
+        path: auth.signUp,
         element: <SignUp />,
       },
     ],

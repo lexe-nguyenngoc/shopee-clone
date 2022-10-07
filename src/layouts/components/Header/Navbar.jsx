@@ -5,12 +5,14 @@ import images from '~/assets/images';
 
 import { HelpIcon, LanguageIcon, NotificationIcon } from '~/assets/svgs';
 
+import { useAuth } from '~/hooks';
+import { uid } from '~/utils';
+import { auth as authRoute } from '~/routes';
+
 import Button from '~/components/Button';
 import Image from '~/components/Image';
 import Popper, { Wrapper } from '~/components/Popper';
-import { useAuth } from '~/hooks';
 import Container from '~/layouts/components/Container';
-import { uid } from '~/utils';
 
 import styles from './Header.module.scss';
 
@@ -132,14 +134,14 @@ const Navbar = () => {
         ) : (
           <>
             <Button
-              to='/auth/sign-up'
+              to={`${authRoute.index}/${authRoute.signUp}`}
               className={cx('navbar__item')}
               color='white'
             >
               Đăng ký
             </Button>
             <Button
-              to='/auth'
+              to={`${authRoute.index}`}
               className={cx('navbar__item', 'separate')}
               color='white'
             >

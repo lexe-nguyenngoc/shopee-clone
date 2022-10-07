@@ -6,6 +6,7 @@ import classNames from 'classnames/bind';
 import styles from './SearchSuggest.module.scss';
 import { sanitizeDOM } from '~/utils';
 import { Link } from 'react-router-dom';
+import { shopping } from '~/routes';
 
 const cx = classNames.bind(styles);
 
@@ -18,7 +19,7 @@ const SearchSuggest = ({ data, keyword }) => {
         return (
           <Link
             key={item.id}
-            to={`/?q=${item.name}`}
+            to={`${shopping.index}?q=${item.name}`}
             className={cx('search-suggest__item')}
             dangerouslySetInnerHTML={{
               __html: sanitizeDOM(

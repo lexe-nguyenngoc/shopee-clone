@@ -10,22 +10,38 @@ import Navbar from './Navbar';
 import styles from './Header.module.scss';
 import Search from './Search';
 import FeaturedSearch from './FeaturedSearch';
+import { useAuth } from '~/hooks';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { auth, shopping } from '~/routes';
 
 const cx = classNames.bind(styles);
 
 const Header = () => {
+  const { isAuthentication } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleCardClick = () => {
+    let path = '/cart';
+    if (!isAuthentication) {
+      path = `${auth.index}/${auth.signIn}?_back=${location.pathname}`;
+    }
+
+    navigate(path);
+  };
+
   return (
     <header className={cx('header')}>
       <Navbar />
       <Container className={cx('container', 'full')}>
-        <Button to='/' className={cx('logo')}>
+        <Button to={shopping.index} className={cx('logo')}>
           <LogoIcon />
         </Button>
         <section className={cx('header__search')}>
           <Search />
           <FeaturedSearch />
         </section>
-        <Button className={cx('cart')} color='white'>
+        <Button className={cx('cart')} color='white' onClick={handleCardClick}>
           <CartIcon />
         </Button>
       </Container>

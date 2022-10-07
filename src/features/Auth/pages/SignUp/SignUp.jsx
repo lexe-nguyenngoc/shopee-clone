@@ -1,15 +1,18 @@
-import PropTypes from 'prop-types';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import classNames from 'classnames/bind';
+import { useForm } from 'react-hook-form';
 
-import styles from './SignUp.module.scss';
-import Group from '../../components/Group';
+import { auth as authRoute } from '~/routes';
+
 import Button from '~/components/Button';
 import { InputField } from '~/components/Form';
-import { useForm } from 'react-hook-form';
+
+import Group from '../../components/Group';
 import Social from '../../components/Social';
 import Redirect from '../../components/Redirect';
+
+import styles from './SignUp.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -75,7 +78,7 @@ const SignUp = () => {
       </div>
       <Redirect
         label='Bạn đã có tài khoản?'
-        to='/auth/sign-in'
+        to={`${authRoute.index}/${authRoute.signIn}`}
         text='Đăng nhập'
       />
     </Group>
