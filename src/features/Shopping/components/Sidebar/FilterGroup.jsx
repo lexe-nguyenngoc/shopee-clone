@@ -24,7 +24,7 @@ const FilterGroup = ({ heading, name, path }) => {
       return;
     }
 
-    onAddQuery({ [name]: item });
+    onAddQuery({ [name]: item, page: 1 });
   };
 
   useEffect(() => {

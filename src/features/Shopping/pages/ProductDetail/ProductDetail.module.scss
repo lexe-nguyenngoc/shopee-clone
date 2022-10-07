@@ -1,0 +1,14 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  height: 100%;
+
+  background-color: var(--white-color);
+}
+
+.image-slide {
+  width: 100%;
+  max-width: 480px;
+
+  padding: 15px;
+}

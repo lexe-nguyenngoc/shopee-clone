@@ -14,6 +14,7 @@ const Image = ({
   src: customSrc,
   alt,
   fallback: customFallback,
+  ...rest
 }) => {
   const [src, setSrc] = useState();
   const [loaded, setLoaded] = useState(false);
@@ -24,8 +25,6 @@ const Image = ({
     if (customFallback) {
       return setSrc(customFallback());
     }
-
-    setSrc(images.blankImage);
   };
 
   useEffect(() => {
@@ -46,7 +45,7 @@ const Image = ({
   }, [customSrc]);
 
   return (
-    <div className={cx(className, 'image')} ref={ref}>
+    <div className={cx(className, 'image')} ref={ref} {...rest}>
       <img
         src={src}
         alt={alt}
@@ -55,7 +54,7 @@ const Image = ({
           if (src) setLoaded(true);
         }}
       />
-      {!loaded && (
+      {(!loaded || !src) && (
         <div className={cx('placeholder')}>
           <ShopeePlaceholder />
         </div>

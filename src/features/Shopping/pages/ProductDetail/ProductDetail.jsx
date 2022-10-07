@@ -1,11 +1,14 @@
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import classNames from 'classnames/bind';
+import { useDispatch, useSelector } from 'react-redux';
+
+import Container from '~/layouts/components/Container';
+import ImageSlide from '../../components/ImageSlide';
+
+import { getProductRequest, getProductSelector } from '../../shoppingSlice';
 
 import styles from './ProductDetail.module.scss';
-import Container from '~/layouts/components/Container';
-import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { getProductRequest, getProductSelector } from '../../shoppingSlice';
-import { useEffect } from 'react';
 
 const cx = classNames.bind(styles);
 
@@ -21,7 +24,11 @@ const ProductDetail = () => {
 
   return (
     <Container>
-      <div className={cx('wrapper')}>page {id}</div>
+      <div className={cx('wrapper')}>
+        <div className={cx('image-slide')}>
+          <ImageSlide data={data.images} />
+        </div>
+      </div>
     </Container>
   );
 };
