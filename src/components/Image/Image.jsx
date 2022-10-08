@@ -47,6 +47,7 @@ const Image = ({
   return (
     <div className={cx(className, 'image')} ref={ref} {...rest}>
       <img
+        hidden={!loaded}
         src={src}
         alt={alt}
         onError={handleFallback}
