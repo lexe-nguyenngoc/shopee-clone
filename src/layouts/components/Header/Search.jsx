@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 
 import {
   suggestKeywordRequest,
@@ -21,6 +22,7 @@ const cx = classNames.bind(styles);
 const Search = (props) => {
   const suggestKeywords = useSelector(suggestKeywordSelector);
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const { query, onAddQuery } = useQuery();
 
@@ -68,6 +70,14 @@ const Search = (props) => {
       dispatch(suggestKeywordRequest(keywordDebounced));
     }
   }, [keywordDebounced]);
+
+  useEffect(() => {
+    setIsFocus(false);
+  }, [location]);
+
+  useEffect(() => {
+    setKeyword(query.q || '');
+  }, [query.q]);
 
   return (
     <Popper
