@@ -6,23 +6,23 @@
       "",
       "import classNames from 'classnames/bind';",
       "",
-      "import styles from './$1.module.scss';",
+      "import styles from './${TM_DIRECTORY/^.+\\/(.*)$/$1/}.module.scss';",
       "",
       "const cx = classNames.bind(styles);",
       "",
-      "const $1= (props) => {",
+      "const ${TM_DIRECTORY/^.+\\/(.*)$/$1/} = (props) => {",
       "  return <div>$1</div>;",
       "};",
       "",
-      "$1.propTypes = {",
+      "${TM_DIRECTORY/^.+\\/(.*)$/$1/}.propTypes = {",
       "",
       "};",
       "",
-      "$1.defaultProps = {",
+      "${TM_DIRECTORY/^.+\\/(.*)$/$1/}.defaultProps = {",
       "",
       "}",
       "",
-      "export default $1;",
+      "export default ${TM_DIRECTORY/^.+\\/(.*)$/$1/};",
       ""
     ],
     "description": "React Arrow function Component with sass module"
@@ -36,5 +36,9 @@
     "prefix": "ac",
     "body": ["className={cx($1)}"],
     "description": ""
+  },
+  "export for index file": {
+    "prefix": "epif",
+    "body": ["export { default } from './${TM_DIRECTORY/^.+\\/(.*)$/$1/}'"]
   }
 }

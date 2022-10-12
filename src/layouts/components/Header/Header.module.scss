@@ -155,6 +155,14 @@
   }
 }
 
+.cart-popper {
+  width: fit-content;
+
+  *[data-tippy-root] {
+    width: fit-content !important;
+  }
+}
+
 .cart {
   margin-right: 60px;
 

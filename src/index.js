@@ -7,6 +7,7 @@ import store from '~/app/store';
 
 import { MainLazyLoading } from '~/components/Loading';
 import App from '~/App';
+import Token from '~/components/Token';
 
 const GlobalStyles = lazy(() => import('~/components/GlobalStyles'));
 
@@ -17,6 +18,7 @@ root.render(
       <Provider store={store}>
         <GlobalStyles>
           <BrowserRouter>
+            <Token />
             <App />
           </BrowserRouter>
         </GlobalStyles>

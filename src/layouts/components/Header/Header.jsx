@@ -13,6 +13,8 @@ import FeaturedSearch from './FeaturedSearch';
 import { useAuth } from '~/hooks';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { auth, shopping } from '~/routes';
+import Popper from '~/components/Popper';
+import Cart from '../Cart';
 
 const cx = classNames.bind(styles);
 
@@ -41,9 +43,20 @@ const Header = () => {
           <Search />
           <FeaturedSearch />
         </section>
-        <Button className={cx('cart')} color='white' onClick={handleCardClick}>
-          <CartIcon />
-        </Button>
+        <Popper
+          className={cx('cart-popper')}
+          placement='bottom-end'
+          offset={[2, 10]}
+          render={() => <Cart />}
+        >
+          <Button
+            className={cx('cart')}
+            color='white'
+            onClick={handleCardClick}
+          >
+            <CartIcon />
+          </Button>
+        </Popper>
       </Container>
     </header>
   );

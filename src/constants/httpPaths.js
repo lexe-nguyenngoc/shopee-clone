@@ -3,6 +3,7 @@ const suggestKeyword = '/products';
 const products = '/products';
 const category = '/category';
 const address = '/address';
+const cart = '/cart';
 
 const httpPaths = {
   signIn,
@@ -10,6 +11,7 @@ const httpPaths = {
   category,
   address,
   products,
+  cart,
 };
 
 export default httpPaths;

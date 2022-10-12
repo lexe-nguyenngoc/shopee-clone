@@ -9,6 +9,11 @@ const initialState = {
     data: [],
     error: null,
   },
+  cart: {
+    status: httpStatus.IDLE,
+    data: [],
+    error: null,
+  },
 };
 
 const layoutSlice = createSlice({
@@ -33,14 +38,31 @@ const layoutSlice = createSlice({
       state.suggestKeyword.status = httpStatus.FAIL;
       state.suggestKeyword.error = action.payload;
     },
+
+    getCartRequest: (state) => {
+      state.cart.status = httpStatus.LOADING;
+    },
+    getCartSuccess: (state, action) => {
+      state.cart.status = httpStatus.SUCCESS;
+      state.cart.data = action.payload;
+      state.cart.error = null;
+    },
+    getCartFailed: (state, action) => {
+      state.cart.status = httpStatus.FAIL;
+      state.cart.error = action.payload;
+    },
   },
 });
 
 export const suggestKeywordSelector = (state) =>
   state[ROOT_STATE_NAME].suggestKeyword;
+export const cartSelector = (state) => state[ROOT_STATE_NAME].cart;
 export const {
   suggestKeywordRequest,
   suggestKeywordSuccess,
   suggestKeywordFailed,
+  getCartRequest,
+  getCartSuccess,
+  getCartFailed,
 } = layoutSlice.actions;
 export default layoutSlice.reducer;
